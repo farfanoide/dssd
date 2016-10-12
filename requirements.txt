@@ -1,0 +1,3 @@
+google-api-python-client
+Django
+django-extensions==1.7.4
