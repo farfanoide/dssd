@@ -2,7 +2,17 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+class Author(models.Model):
+    name = models.TextField(max_length=255)
+    personal_email = models.EmailField()
+    google_email = models.EmailField()
+
+class Collaborator(models.Model):
+    name = models.TextField(max_length=255)
+    paper = models.ForeignKey('Paper')
+
 class Paper(models.Model):
+    author = models.ForeignKey(Author)
     title = models.TextField(max_length=255)
     summary = models.TextField(max_length=255)
     topic = models.TextField(
@@ -31,12 +41,4 @@ class Paper(models.Model):
         )
     )
     presentation_date = models.DateTimeField()
-
-class Author(models.Model):
-    name = models.TextField(max_length=255)
-    personal_email = models.EmailField()
-    google_email = models.EmailField()
-    paper = models.ForeignKey(Paper, on_delete=models.CASCADE)
-    is_collaborator = models.BooleanField(default=False)
-
 
