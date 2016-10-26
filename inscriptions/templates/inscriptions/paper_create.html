@@ -1,0 +1,6 @@
+
+<form action="{% url 'inscriptions:create_paper' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" />
+</form>
