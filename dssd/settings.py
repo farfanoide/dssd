@@ -79,8 +79,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'dssd',
-        'USER': 'farfanoide',
-        'PASSWORD': 'farfanoide',
+        'USER': 'dssd',
+        'PASSWORD': 'dssd',
         'HOST': 'localhost',
         'PORT': '5432',
     }
