@@ -26,13 +26,24 @@ class ListInscriptionsAPI(View):
 
 class PaperCreateView(FormView):
     form_class = PaperForm
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('inscriptions:home')
     template_name = 'inscriptions/paper_create.html'
 
     def form_valid(self, form):
-        import pdb; pdb.set_trace()  # XXX BREAKPOINT
 
-        Paper.objects.create()
-        Author.objects.create()
+        author = Author.objects.create(
+            name=form.cleaned_data['author_name'],
+            personal_email=form.cleaned_data['author_personal_email'],
+            google_email=form.cleaned_data['author_google_email'],
+        )
+
+        Paper.objects.create(
+            author=author,
+            title=form.cleaned_data['paper_title'],
+            summary=form.cleaned_data['paper_summary'],
+            topic=form.cleaned_data['paper_topic'],
+            presentation_type=form.cleaned_data['paper_presentation_type'],
+        )
+
 
         return super(PaperCreateView, self).form_valid(form)

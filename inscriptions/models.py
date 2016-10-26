@@ -40,5 +40,5 @@ class Paper(models.Model):
             ('finalized', 'finalized'),
         )
     )
-    presentation_date = models.DateTimeField()
+    presentation_date = models.DateTimeField(null=True)
 
