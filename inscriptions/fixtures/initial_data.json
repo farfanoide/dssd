@@ -1,0 +1,62 @@
+[
+  {
+    "model": "inscriptions.author",
+    "fields": {
+      "name": "John",
+      "personal_email": "sarasa@sar.com",
+      "google_email": "sarasa@sar.com"
+    }
+  },
+  {
+    "model": "inscriptions.author",
+    "fields": {
+      "name": "Jane",
+      "personal_email": "lala@sar.com",
+      "google_email": "gaga@sar.com"
+    }
+  },
+  {
+    "model": "inscriptions.author",
+    "fields": {
+      "name": "Pepina",
+      "personal_email": "lelalsd@sar.com",
+      "google_email": "gagasdfff@sar.com"
+    }
+  },
+  {
+    "model": "inscriptions.paper",
+    "fields": {
+      "author": 1,
+      "title": "McCartney",
+      "summary": "Un summary my friend",
+      "collaborators": "Juan, Jose, Ppepepepep",
+      "topic": "cloud",
+      "presentation_type": "conferencia",
+      "state": "unassigned"
+    }
+  },
+  {
+    "model": "inscriptions.paper",
+    "fields": {
+      "author": 2,
+      "title": "Otro paper",
+      "summary": "Un summary my friend",
+      "collaborators": "Juan, Jose, Ppepepepep",
+      "topic": "cloud",
+      "presentation_type": "conferencia",
+      "state": "unassigned"
+    }
+  },
+  {
+    "model": "inscriptions.paper",
+    "fields": {
+      "author": 3,
+      "title": "Un paper mas",
+      "summary": "Un summary my friend",
+      "collaborators": "Juan, Jose, Ppepepepep",
+      "topic": "cloud",
+      "presentation_type": "conferencia",
+      "state": "unassigned"
+    }
+  }
+]
