@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<organization:Organization xmlns:organization="http://documentation.bonitasoft.com/organization-xml-schema/1.1" name="DSSD">
+  <customUserInfoDefinitions/>
+  <users>
+    <user userName="Johndoe">
+      <firstName>John</firstName>
+      <lastName>Doe</lastName>
+      <jobTitle>Crack!</jobTitle>
+      <manager></manager>
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">johndoe</password>
+      <customUserInfoValues/>
+    </user>
+    <user userName="macalla">
+      <firstName>Macalla</firstName>
+      <lastName>Martin</lastName>
+      <manager></manager>
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">macalla</password>
+      <customUserInfoValues/>
+    </user>
+    <user userName="ws">
+      <firstName>ws</firstName>
+      <lastName>ws</lastName>
+      <manager></manager>
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">ws</password>
+      <customUserInfoValues/>
+    </user>
+    <user userName="soa">
+      <firstName>soa</firstName>
+      <lastName>soa</lastName>
+      <manager></manager>
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">soa</password>
+      <customUserInfoValues/>
+    </user>
+    <user userName="cloud">
+      <firstName>cloud</firstName>
+      <lastName>cloude</lastName>
+      <manager></manager>
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">cloud</password>
+      <customUserInfoValues/>
+    </user>
+    <user userName="bpm">
+      <firstName>bpm</firstName>
+      <lastName>bpm</lastName>
+      <manager></manager>
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">bpm</password>
+      <customUserInfoValues/>
+    </user>
+  </users>
+  <roles>
+    <role name="Organizador">
+      <displayName>Organizador</displayName>
+    </role>
+    <role name="Revisor">
+      <displayName>Revisor</displayName>
+    </role>
+  </roles>
+  <groups>
+    <group name="Organizacion">
+      <displayName>Organizacion</displayName>
+    </group>
+    <group name="Cientificos">
+      <displayName>Cientificos</displayName>
+    </group>
+    <group name="SOA" parentPath="/Cientificos">
+      <displayName>SOA</displayName>
+    </group>
+    <group name="Cloud" parentPath="/Cientificos">
+      <displayName>Cloud</displayName>
+      <description>cloud</description>
+    </group>
+    <group name="BPM" parentPath="/Cientificos">
+      <displayName>BPM</displayName>
+      <description>BPM</description>
+    </group>
+    <group name="WS" parentPath="/Cientificos">
+      <displayName>WS</displayName>
+      <description>WS</description>
+    </group>
+  </groups>
+  <memberships>
+    <membership>
+      <userName>Johndoe</userName>
+      <roleName>Revisor</roleName>
+      <groupName>Organizacion</groupName>
+    </membership>
+    <membership>
+      <userName>macalla</userName>
+      <roleName>Revisor</roleName>
+      <groupName>SOA</groupName>
+      <groupParentPath>/Cientificos</groupParentPath>
+    </membership>
+    <membership>
+      <userName>ws</userName>
+      <roleName>Revisor</roleName>
+      <groupName>WS</groupName>
+      <groupParentPath>/Cientificos</groupParentPath>
+    </membership>
+    <membership>
+      <userName>soa</userName>
+      <roleName>Revisor</roleName>
+      <groupName>SOA</groupName>
+      <groupParentPath>/Cientificos</groupParentPath>
+    </membership>
+    <membership>
+      <userName>cloud</userName>
+      <roleName>Revisor</roleName>
+      <groupName>Cloud</groupName>
+      <groupParentPath>/Cientificos</groupParentPath>
+    </membership>
+    <membership>
+      <userName>bpm</userName>
+      <roleName>Revisor</roleName>
+      <groupName>BPM</groupName>
+      <groupParentPath>/Cientificos</groupParentPath>
+    </membership>
+  </memberships>
+</organization:Organization>
