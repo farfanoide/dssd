@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse, reverse_lazy
 from django.views.generic import FormView
 
 from .forms import PaperForm
-from .models import Paper, Collaborator, Author
+from .models import Paper, Author
 
 class ListInscriptionsAPI(View):
 

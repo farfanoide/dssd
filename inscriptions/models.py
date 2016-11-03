@@ -7,14 +7,11 @@ class Author(models.Model):
     personal_email = models.EmailField()
     google_email = models.EmailField()
 
-class Collaborator(models.Model):
-    name = models.TextField(max_length=255)
-    paper = models.ForeignKey('Paper')
-
 class Paper(models.Model):
     author = models.ForeignKey(Author)
     title = models.TextField(max_length=255)
     summary = models.TextField(max_length=255)
+    collaborators = models.TextField(max_length=255)
     topic = models.TextField(
         max_length=255,
         choices=[
@@ -34,11 +31,12 @@ class Paper(models.Model):
     state = models.TextField(
         max_length=255,
         choices=(
+            ('unassigned', 'unassigned'),
             ('assigned', 'assigned'),
             ('accepted', 'accepted'),
             ('closed', 'closed'),
             ('finalized', 'finalized'),
-        )
+        ),
+        default='unassigned'
     )
     presentation_date = models.DateTimeField(null=True)
-
