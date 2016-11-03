@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<connectorconfiguration:ConnectorConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:connectorconfiguration="http://wwww.bonitasoft.org/model/connector/configuration" xmlns:expression="http://www.bonitasoft.org/ns/studio/expression" definitionId="database-postgresql92" version="1.0.0" name="localhostdssd" modelVersion="7.2.0-002">
+  <parameters key="driver">
+    <expression xsi:type="expression:Expression" name="org.postgresql.Driver" content="org.postgresql.Driver" returnTypeFixed="true"/>
+  </parameters>
+  <parameters key="url">
+    <expression xsi:type="expression:Expression" name="jdbc:postgresql://localhost:5432/dssd" content="jdbc:postgresql://localhost:5432/dssd" returnTypeFixed="true"/>
+  </parameters>
+  <parameters key="script">
+    <expression xsi:type="expression:Expression" type="TYPE_PATTERN" returnTypeFixed="true"/>
+  </parameters>
+  <parameters key="username">
+    <expression xsi:type="expression:Expression" name="dssd" content="dssd" returnTypeFixed="true"/>
+  </parameters>
+  <parameters key="password">
+    <expression xsi:type="expression:Expression" name="dssd" content="dssd" returnTypeFixed="true"/>
+  </parameters>
+  <parameters key="separator">
+    <expression xsi:type="expression:Expression" returnTypeFixed="true"/>
+  </parameters>
+  <parameters key="outputType"/>
+</connectorconfiguration:ConnectorConfiguration>
