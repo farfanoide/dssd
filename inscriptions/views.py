@@ -30,7 +30,6 @@ class PaperCreateView(FormView):
     template_name = 'inscriptions/paper_create.html'
 
     def form_valid(self, form):
-
         author = Author.objects.create(
             name=form.cleaned_data['author_name'],
             personal_email=form.cleaned_data['author_personal_email'],
@@ -43,6 +42,7 @@ class PaperCreateView(FormView):
             summary=form.cleaned_data['paper_summary'],
             topic=form.cleaned_data['paper_topic'],
             presentation_type=form.cleaned_data['paper_presentation_type'],
+            collaborators=form.cleaned_data['paper_collaborators']
         )
 
 
