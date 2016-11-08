@@ -4,8 +4,8 @@ from django.db import models
 
 class Author(models.Model):
     name = models.TextField(max_length=255)
-    personal_email = models.EmailField()
-    google_email = models.EmailField()
+    personal_email = models.TextField(max_length=255)
+    google_email = models.TextField(max_length=255)
 
 class Paper(models.Model):
     author = models.ForeignKey(Author)
