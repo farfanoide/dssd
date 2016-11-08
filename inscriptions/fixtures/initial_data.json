@@ -30,7 +30,7 @@
       "title": "McCartney",
       "summary": "Un summary my friend",
       "collaborators": "Juan, Jose, Ppepepepep",
-      "topic": "cloud",
+      "topic": "CLOUD",
       "presentation_type": "conferencia",
       "state": "unassigned"
     }
@@ -42,7 +42,7 @@
       "title": "Otro paper",
       "summary": "Un summary my friend",
       "collaborators": "Juan, Jose, Ppepepepep",
-      "topic": "cloud",
+      "topic": "CLOUD",
       "presentation_type": "conferencia",
       "state": "unassigned"
     }
@@ -54,7 +54,7 @@
       "title": "Un paper mas",
       "summary": "Un summary my friend",
       "collaborators": "Juan, Jose, Ppepepepep",
-      "topic": "cloud",
+      "topic": "WS",
       "presentation_type": "conferencia",
       "state": "unassigned"
     }

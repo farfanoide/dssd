@@ -12,14 +12,14 @@ class Paper(models.Model):
     title = models.TextField(max_length=255)
     summary = models.TextField(max_length=255)
     collaborators = models.TextField(max_length=255)
-    link = models.TextField(max_length=255)
+    link = models.TextField(max_length=255, null=True)
     topic = models.TextField(
         max_length=255,
         choices=[
-            ('cloud', 'cloud'),
-            ('soa', 'soa'),
-            ('ws', 'ws'),
-            ('bpm', 'bpm'),
+            ('CLOUD', 'CLOUD'),
+            ('SOA', 'SOA'),
+            ('WS', 'WS'),
+            ('BPM', 'BPM'),
         ]
     )
     presentation_type = models.TextField(
