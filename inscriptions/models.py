@@ -12,6 +12,7 @@ class Paper(models.Model):
     title = models.TextField(max_length=255)
     summary = models.TextField(max_length=255)
     collaborators = models.TextField(max_length=255)
+    link = models.TextField(max_length=255)
     topic = models.TextField(
         max_length=255,
         choices=[
