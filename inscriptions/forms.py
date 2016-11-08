@@ -1,9 +1,13 @@
 from django import forms
 from inscriptions.models import Paper
+from crispy_forms.helper import FormHelper
 
 
 class PaperForm(forms.Form):
-    form_tag = False
+    def __init__(self, *args, **kwargs):
+        super(PaperForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_tag = False
 
     author_name = forms.CharField(max_length=255)
     author_personal_email = forms.EmailField()
@@ -26,3 +30,4 @@ class PaperForm(forms.Form):
             ('conferencia', 'conferencia'),
         )
     )
+
