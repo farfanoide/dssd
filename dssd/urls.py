@@ -21,4 +21,5 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^inscriptions/', include('inscriptions.urls', namespace='inscriptions')),
+    url(r'^gdrive/', include('gdrive.urls', namespace='gdrive')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

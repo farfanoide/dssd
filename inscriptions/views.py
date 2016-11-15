@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.views.generic import View
 import json
+import random
+import datetime
+from faker import Faker
 from django.http import JsonResponse
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.views.generic import FormView
@@ -47,3 +50,16 @@ class PaperCreateView(FormView):
 
 
         return super(PaperCreateView, self).form_valid(form)
+
+
+class PresentationDateView(View):
+    def get(self, request, *args, **kwargs):
+
+        fake = Faker()
+        presentation_date = fake.date_time_between('-1d')
+        presentation_place = fake.address()
+
+        return JsonResponse({'presentation': {
+            'date': presentation_date,
+            'place': presentation_place
+        }})

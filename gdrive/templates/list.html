@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Listado de archivos disponibles</h1>
+<div >
+  <ul class="list-container">
+    {% for item in items %}
+    <li>
+      {{item.name}}
+      {% if item.shared %}
+      <a href="{%url 'unshare' file_id=item.id %}" data-unshare-url>
+        <i class="glyphicon glyphicon-ban-circle "></i>
+      </a>
+  {% else %}
+  <a href="{%url 'share' file_id=item.id %}">
+    <i class="glyphicon glyphicon-share"></i>
+  </a>
+  {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+<form action="{%url 'create'%}" method="POST" accept-charset="utf-8">
+  {%csrf_token%}
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-10">
+        <input type="text" name="new_file" placeholder="Ingrese nombre para el archivo a crear" class="form-control">
+      </div>
+      <div class="col-md-2">
+        <input type="submit" value="Crear" class="btn btn-success">
+      </div>
+    </div>
+  </div>
+</form>
+{% endblock content %}
+
+{% block js %}
+<script>
+$(document).ready(function () {
+  $('[data-unshare-url]').on('click', function () {
+    return confirm('Seguro que quiere descompartir este archivo?');
+  });
+});
+</script>
+{% endblock js %}

@@ -3,3 +3,4 @@ Django
 django-extensions==1.7.4
 psycopg2==2.6.2
 django-crispy-forms==1.6.1
+Faker==0.7.3

@@ -41,3 +41,6 @@ class Paper(models.Model):
         default='unassigned'
     )
     presentation_date = models.DateTimeField(null=True)
+    presentation_place = models.CharField(max_length=255,null=True)
+    gdrive_id = models.CharField(max_length=255,null=True)
+    gdrive_link = models.CharField(max_length=255,null=True)
