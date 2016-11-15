@@ -12,7 +12,6 @@ class Paper(models.Model):
     title = models.TextField(max_length=255)
     summary = models.TextField(max_length=255)
     collaborators = models.TextField(max_length=255)
-    link = models.TextField(max_length=255, null=True)
     topic = models.TextField(
         max_length=255,
         choices=[
@@ -41,6 +40,6 @@ class Paper(models.Model):
         default='unassigned'
     )
     presentation_date = models.DateTimeField(null=True)
-    presentation_place = models.CharField(max_length=255,null=True)
-    gdrive_id = models.CharField(max_length=255,null=True)
-    gdrive_link = models.CharField(max_length=255,null=True)
+    presentation_place = models.TextField(max_length=255, null=True)
+    gdrive_id = models.TextField(max_length=255, null=True)
+    gdrive_link = models.TextField(max_length=255, null=True)
