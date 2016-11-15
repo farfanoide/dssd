@@ -111,9 +111,9 @@ class ClosePaperView(HasGdriveRepositoryMixin, FormView):
 
 class GdriveCreateView(HasGdriveRepositoryMixin, View):
 
-    def post(self, request, *args, **kwargs):
-        title = self.request.POST['title']
-        email = self.request.POST['email']
+    def get(self, request, *args, **kwargs):
+        title = self.request.GET['title']
+        email = self.request.GET['email']
         gdrive_data = self.repo.create_and_share(title, email)
         gdrive_data['close_link'] = 'http://localhost:8000' + reverse('gdrive:close_paper', kwargs={'gdrive_id':gdrive_data['id']})
         return JsonResponse(gdrive_data)
