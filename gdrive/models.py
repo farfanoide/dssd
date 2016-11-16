@@ -42,8 +42,8 @@ class GdriveRepository(object):
             'name': name,
             'mimeType': 'application/vnd.google-apps.document',
         }
-        response = self.service.files().create(body=file_metadata, fields='id').execute()
-        return response
+        response = self.service.files().create(body=file_metadata, fields='id')
+        return response.execute()
 
     def share(self, file_id, user_email):
 
@@ -57,9 +57,10 @@ class GdriveRepository(object):
             fileId=file_id,
             body=user_permission,
             fields='id',
-        ).execute()
+            sendNotificationEmail=False,
+        )
 
-        return response
+        return response.execute()
 
     def unshare(self, file_id):
         batch = self.service.new_batch_http_request()
