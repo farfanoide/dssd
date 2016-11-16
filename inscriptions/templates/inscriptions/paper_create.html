@@ -3,6 +3,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
+<h1> Crear nuevo Paper </h1>
 <form action="{% url 'inscriptions:create_paper' %}" method="post">
     {% csrf_token %}
     {% crispy form %}
