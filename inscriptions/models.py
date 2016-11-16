@@ -39,7 +39,7 @@ class Paper(models.Model):
         ),
         default='unassigned'
     )
-    presentation_date = models.DateTimeField(null=True)
+    presentation_date = models.TextField(null=True)
     presentation_place = models.TextField(max_length=255, null=True)
     gdrive_id = models.TextField(max_length=255, null=True)
     gdrive_link = models.TextField(max_length=255, null=True)

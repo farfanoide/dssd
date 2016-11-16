@@ -8,9 +8,11 @@ from django.http import JsonResponse
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.views.generic import FormView
 from django.contrib import messages
+from django.utils import formats
 
 from .forms import PaperForm
 from .models import Paper, Author
+
 
 class ListInscriptionsAPI(View):
 
@@ -58,7 +60,11 @@ class PresentationDateView(View):
     def get(self, request, *args, **kwargs):
 
         fake = Faker()
-        presentation_date = fake.date_time_between('-1d')
+        date = fake.date_time_between('-1d')
+        presentation_date = '{date} a las {time}hs'.format(
+            date=formats.date_format(date, 'd/m/Y'),
+            time=formats.date_format(date, 'G:i')
+        )
         presentation_place = fake.address()
 
         return JsonResponse({'presentation': {
