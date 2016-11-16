@@ -17,9 +17,11 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
+from inscriptions.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^inscriptions/', include('inscriptions.urls', namespace='inscriptions')),
     url(r'^gdrive/', include('gdrive.urls', namespace='gdrive')),
+    url(r'^$', PaperCreateView.as_view()),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

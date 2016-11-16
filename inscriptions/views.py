@@ -7,6 +7,7 @@ from faker import Faker
 from django.http import JsonResponse
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.views.generic import FormView
+from django.contrib import messages
 
 from .forms import PaperForm
 from .models import Paper, Author
@@ -47,6 +48,7 @@ class PaperCreateView(FormView):
             presentation_type=form.cleaned_data['paper_presentation_type'],
             collaborators=form.cleaned_data['paper_collaborators']
         )
+        messages.success(self.request, 'Su trabajo ha sido enviado, recibira un mail de respuesta a la brevedad')
 
 
         return super(PaperCreateView, self).form_valid(form)
