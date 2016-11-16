@@ -18,16 +18,16 @@ class PaperForm(forms.Form):
     paper_summary = forms.CharField(widget=forms.Textarea, max_length=255)
     paper_topic = forms.ChoiceField(
         choices=[
-            ('cloud', 'cloud'),
-            ('soa', 'soa'),
-            ('ws', 'ws'),
-            ('bpm', 'bpm'),
+            ('CLOUD', 'CLOUD'),
+            ('SOA', 'SOA'),
+            ('WS', 'WS'),
+            ('BPM', 'BPM'),
         ]
     )
     paper_presentation_type = forms.ChoiceField(
         choices=(
-            ('poster', 'poster'),
-            ('conferencia', 'conferencia'),
+            ('Poster', 'Poster'),
+            ('Conferencia', 'Conferencia'),
         )
     )
 

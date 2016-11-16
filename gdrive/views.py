@@ -106,6 +106,9 @@ class ClosePaperView(HasGdriveRepositoryMixin, FormView):
 
     def form_valid(self, form):
         self.repo.unshare(self.kwargs['gdrive_id'])
+	paper = Paper.objects.get(gdrive_id=self.kwargs['gdrive_id'])
+	paper.state = 'closed'
+	paper.save()
         return super(ClosePaperView, self).form_valid(form)
 
 
