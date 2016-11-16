@@ -3,33 +3,33 @@
     "model": "inscriptions.author",
     "fields": {
       "name": "John",
-      "personal_email": "sarasa@sar.com",
-      "google_email": "sarasa@sar.com"
+      "personal_email": "johndoe@yahoo.com",
+      "google_email": "ruta2366@gmail.com"
     }
   },
   {
     "model": "inscriptions.author",
     "fields": {
       "name": "Jane",
-      "personal_email": "lala@sar.com",
-      "google_email": "gaga@sar.com"
+      "personal_email": "janedoe@yahoo.com",
+      "google_email": "ruta2366@gmail.com"
     }
   },
   {
     "model": "inscriptions.author",
     "fields": {
       "name": "Pepina",
-      "personal_email": "lelalsd@sar.com",
-      "google_email": "gagasdfff@sar.com"
+      "personal_email": "Pepina@yahoo.com",
+      "google_email": "ruta2366@gmail.com"
     }
   },
   {
     "model": "inscriptions.paper",
     "fields": {
       "author": 1,
-      "title": "McCartney",
-      "summary": "Un summary my friend",
-      "collaborators": "Juan, Jose, Ppepepepep",
+      "title": "Lorem ipsum dolor",
+      "summary": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.",
+      "collaborators": "Juan Sanchez, Jose Paz, Carlos Fernandez",
       "topic": "CLOUD",
       "presentation_type": "conferencia",
       "state": "unassigned"
@@ -39,11 +39,11 @@
     "model": "inscriptions.paper",
     "fields": {
       "author": 2,
-      "title": "Otro paper",
-      "summary": "Un summary my friend",
-      "collaborators": "Juan, Jose, Ppepepepep",
-      "topic": "CLOUD",
-      "presentation_type": "conferencia",
+      "title": "Li Europan lingues",
+      "summary": "Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores. At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles. Ma quande lingues",
+      "collaborators": "Roberto Chivas, Ramon Juarez",
+      "topic": "SOA",
+      "presentation_type": "poster",
       "state": "unassigned"
     }
   },
@@ -51,9 +51,9 @@
     "model": "inscriptions.paper",
     "fields": {
       "author": 3,
-      "title": "Un paper mas",
-      "summary": "Un summary my friend",
-      "collaborators": "Juan, Jose, Ppepepepep",
+      "title": "Sed ut perspiciatis unde",
+      "summary": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia",
+      "collaborators": "Alberto Rodriguez",
       "topic": "WS",
       "presentation_type": "conferencia",
       "state": "unassigned"
