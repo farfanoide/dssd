@@ -11,6 +11,8 @@ from .forms import GdriveShareForm, ClosePaperForm
 from inscriptions.models import Paper
 
 from apiclient.discovery import build
+from os.path import expanduser
+from django.utils import formats
 import httplib2
 
 
@@ -121,3 +123,32 @@ class GdriveCreateView(HasGdriveRepositoryMixin, View):
         gdrive_data = self.repo.create_and_share(title, email)
         gdrive_data['close_link'] = 'http://localhost:8000' + reverse('gdrive:close_paper', kwargs={'gdrive_id':gdrive_data['id']})
         return JsonResponse(gdrive_data)
+
+class GdriveCreateBook(HasGdriveRepositoryMixin, View):
+
+    def get(self, request, *args, **kwargs):
+        book = self.repo.create_and_share('Libro del Congreso', 'plokiors@gmail.com')
+        papers = Paper.objects.filter(state='finalized')
+        temp_book = open(expanduser("~") + '/libro.txt', 'w+')
+        temp_book.truncate()
+
+        temp_book.write('LIBRO RESUMENES DEL CONGRESO DE TECNOLOGIA INFORMATICA BPM AND CLOUD\n\n\n')
+        for index, paper in enumerate(papers):
+            print(paper)
+
+            temp_book.write("{title} - {author}\n".format(
+                title=paper.title,
+                author=paper.author.name
+            ))
+
+            temp_book.write("\t- El {date} en {place} \t\t\t Pag. {index}\n".format(
+                date=paper.presentation_date,
+                place=paper.presentation_place,
+                index=index + 1
+            ))
+
+            temp_book.write('\n')
+
+        self.repo.update(book.get('id'), temp_book)
+        return JsonResponse(book)
+

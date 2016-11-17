@@ -4,6 +4,7 @@ import json
 import random
 import datetime
 from faker import Faker
+import random
 from django.http import JsonResponse
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.views.generic import FormView
@@ -65,7 +66,7 @@ class PresentationDateView(View):
             date=formats.date_format(date, 'd/m/Y'),
             time=formats.date_format(date, 'G:i')
         )
-        presentation_place = fake.address()
+        presentation_place = 'Sala {nr}, UNLP'.format(nr=random.randint(1,9))
 
         return JsonResponse({'presentation': {
             'date': presentation_date,

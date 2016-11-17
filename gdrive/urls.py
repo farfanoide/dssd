@@ -19,5 +19,7 @@ urlpatterns = [
         name='create',
         ),
     url(r'^thanks$', TemplateView.as_view(template_name='thanks.html'), name='thanks'),
+    url(r'^create_book$', GdriveCreateBook.as_view(), name='create_book'),
+
 ]
 

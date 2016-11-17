@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from googleapiclient.discovery import build
+from googleapiclient.http import MediaIoBaseUpload
 from oauth2client.service_account import ServiceAccountCredentials
 import httplib2
 from django.conf import settings
@@ -28,6 +29,9 @@ class GdriveRepository(object):
 
     def get(self, id):
         return self.service.files().get(fileId=id, fields='id,name,webViewLink').execute()
+
+    # def export(self, id, as='plain/txt'):
+    #     return self.service.
 
     def delete(self, id):
         self.service.files().delete(fileId=id).execute()
@@ -76,3 +80,9 @@ class GdriveRepository(object):
                 ))
 
         batch.execute()
+    def get_content(self, id):
+        return self.service.files().export(fileId=id, mimeType='text/plain').execute()
+
+    def update(self, file_id, file_descriptor):
+        upload = MediaIoBaseUpload(file_descriptor, 'application/rtf')
+        return self.service.files().update(fileId=file_id, media_body=upload).execute()
