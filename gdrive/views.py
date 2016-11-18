@@ -134,7 +134,7 @@ class GdriveCreateView(HasGdriveRepositoryMixin, View):
 class GdriveCreateBook(HasGdriveRepositoryMixin, View):
 
     def get(self, request, *args, **kwargs):
-        book = self.repo.create_and_share('Libro del Congreso', 'ivan6258@gmail.com')
+        book = self.repo.create_and_share('Libro del Congreso', 'plokiors@gmail.com')
         papers = Paper.objects.filter(state='finalized')
         temp_book = codecs.open(expanduser("~") + '/libro.txt', 'w+')
         temp_book.truncate()
