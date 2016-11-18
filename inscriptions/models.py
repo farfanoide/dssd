@@ -43,3 +43,4 @@ class Paper(models.Model):
     presentation_place = models.TextField(max_length=255, null=True)
     gdrive_id = models.TextField(max_length=255, null=True)
     gdrive_link = models.TextField(max_length=255, null=True)
+    gdrive_content = models.TextField(max_length=255, null=True)

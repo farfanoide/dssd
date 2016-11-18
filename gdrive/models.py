@@ -28,7 +28,9 @@ class GdriveRepository(object):
         return self.service.files().list(fields='files(id,name,shared,webViewLink)').execute().get('files')
 
     def get(self, id):
-        return self.service.files().get(fileId=id, fields='id,name,webViewLink').execute()
+        response = self.service.files().get(fileId=id, fields='id,name,webViewLink').execute()
+        response['content'] = self.get_content(id)
+        return response
 
     # def export(self, id, as='plain/txt'):
     #     return self.service.
@@ -80,8 +82,8 @@ class GdriveRepository(object):
                 ))
 
         batch.execute()
-    def get_content(self, id):
-        return self.service.files().export(fileId=id, mimeType='text/plain').execute()
+    def get_content(self, id, as_format='text/plain'):
+        return self.service.files().export(fileId=id, mimeType=as_format).execute()
 
     def update(self, file_id, file_descriptor):
         upload = MediaIoBaseUpload(file_descriptor, 'application/rtf')

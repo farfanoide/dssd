@@ -1,4 +1,9 @@
 from django.shortcuts import render
+from StringIO import StringIO
+from googleapiclient.http import MediaIoBaseDownload
+from django.conf import settings
+
+import codecs
 from django.views.generic import View, TemplateView, FormView
 from django.http import HttpResponseRedirect
 from oauth2client.client import OAuth2WebServerFlow, OAuth2Credentials
@@ -110,6 +115,7 @@ class ClosePaperView(HasGdriveRepositoryMixin, FormView):
         self.repo.unshare(self.kwargs['gdrive_id'])
         paper = Paper.objects.get(gdrive_id=self.kwargs['gdrive_id'])
         paper.state = 'closed'
+        paper.gdrive_content = self.repo.get(paper.gdrive_id).get('content')
         paper.save()
         self.repo.share(paper.gdrive_id, 'plokiors@gmail.com')
         return super(ClosePaperView, self).form_valid(form)
@@ -124,12 +130,13 @@ class GdriveCreateView(HasGdriveRepositoryMixin, View):
         gdrive_data['close_link'] = 'http://localhost:8000' + reverse('gdrive:close_paper', kwargs={'gdrive_id':gdrive_data['id']})
         return JsonResponse(gdrive_data)
 
+
 class GdriveCreateBook(HasGdriveRepositoryMixin, View):
 
     def get(self, request, *args, **kwargs):
-        book = self.repo.create_and_share('Libro del Congreso', 'plokiors@gmail.com')
+        book = self.repo.create_and_share('Libro del Congreso', 'ivan6258@gmail.com')
         papers = Paper.objects.filter(state='finalized')
-        temp_book = open(expanduser("~") + '/libro.txt', 'w+')
+        temp_book = codecs.open(expanduser("~") + '/libro.txt', 'w+')
         temp_book.truncate()
 
         temp_book.write('LIBRO RESUMENES DEL CONGRESO DE TECNOLOGIA INFORMATICA BPM AND CLOUD\n\n\n')
@@ -149,6 +156,30 @@ class GdriveCreateBook(HasGdriveRepositoryMixin, View):
 
             temp_book.write('\n')
 
+        for paper in papers:
+            temp_book.write(paper.title + '\n')
+            temp_book.write(paper.gdrive_content.encode('utf-8') + '\n\n\n')
+
         self.repo.update(book.get('id'), temp_book)
+
+        book['pdf_link'] = 'http://localhost:8000' + reverse('gdrive:show_book', kwargs={'gdrive_id': book['id']})
         return JsonResponse(book)
 
+
+class ShowPdfView(HasGdriveRepositoryMixin, TemplateView):
+    template_name = 'show_book.html'
+
+    def get(self, request, *args, **kwargs):
+        request = self.repo.service.files().export_media(fileId=self.kwargs.get('gdrive_id'), mimeType='application/pdf')
+        fh = StringIO()
+        pdf = open(settings.STATICFILES_DIRS[0] + '/libro.pdf', 'w+')
+        downloader = MediaIoBaseDownload(fh, request)
+
+        done = False
+        while done is False:
+            status, done = downloader.next_chunk()
+
+        fh.seek(0)
+        pdf.writelines(fh.readlines())
+
+        return super(ShowPdfView, self).get(request, *args, **kwargs)
